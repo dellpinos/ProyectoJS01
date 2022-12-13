@@ -1,11 +1,17 @@
 // Notification API
 
-const boton = document.querySelector ('#boton');
+const boton = document.querySelector('#boton');
 
-boton.addEventListener('click', function() {
+boton.addEventListener('click', () => {
     Notification.requestPermission()
-    .then(resultado => console.log('El resultado es: ', resultado))
-}); 
+        .then(resultado => console.log(`El resultado es ${resultado}`) )
+})
+
+
+boton.addEventListener('click', () => {
+    Notification.requestPermission()
+        .then(resultado => console.log(`El resultado es ${resultado}`) )
+})
 
 if(Notification.permission == 'granted') {   //Si el usuario acepta las notificaciones
     new Notification('Esta es una notificacion', {  //new 
@@ -13,3 +19,9 @@ if(Notification.permission == 'granted') {   //Si el usuario acepta las notifica
         body: 'Este es un texto de ejemplo que no es importante'      
     })
 }
+
+
+// boton.addEventListener('click', function() {
+//     Notification.requestPermission()
+//     .then(resultado => console.log('El resultado es: ', resultado))
+// }); 
