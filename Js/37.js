@@ -12,23 +12,29 @@ function descargarNuevosClientes() { // no estoy usando el reject, pero deberia
 
         setTimeout( () => {
             resolve('El archivo fue descargado'); // demoro unosn segs en darle el resolve al promise
-        }, 5000);
+        }, 5000); // meter un reject con un tiempo mas corto para ver el error
+        
     });
 }
 
 async function app() {
     try {
         const resultado = await descargarNuevosClientes(); // llamada a la funcion descargarNuevoClientes
-        console.log(resultado)
+        console.log(resultado) // las instrucciones q escriba en el try se ejecutaran unan vez se hayan descargado los nuevos clientes
+        console.log('Esta Funcion se ejecuta una vez descargado');
     } catch (error) {
         console.log(error)
     }
 
 }
 
-setTimeout( function () {
-    app();
-}, 10000)
+app();
+
+console.log('Esta instruccion es la ultima del codigo...');
+
+// setTimeout( function () {
+//     app();
+// }, 10000)
 
 
 // las funciones se cargan sin ejecutarse. Cuando llamo a la funcion app... esta se ejecuta
